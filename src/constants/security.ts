@@ -1,0 +1,4 @@
+export const SECURITY = {
+  MAX_LOGIN_ATTEMPTS: 5,
+  ACCOUNT_LOCK_TIME_MS: 15 * 60 * 1000,
+};

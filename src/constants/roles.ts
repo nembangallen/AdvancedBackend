@@ -1,0 +1,23 @@
+import { PERMISSIONS, type Permission } from "./permissions";
+
+export const ROLES = {
+  SUPERADMIN: "SUPER_ADMIN",
+  ADMIN: "ADMIN",
+  USER: "USER",
+} as const;
+
+export type UserRole = (typeof ROLES)[keyof typeof ROLES];
+
+export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
+  [ROLES.SUPERADMIN]: [
+    PERMISSIONS.CAFE_CREATE,
+    PERMISSIONS.CAFE_READ,
+    PERMISSIONS.CAFE_UPDATE,
+    PERMISSIONS.CAFE_DELETE,
+    PERMISSIONS.CAFE_ASSIGN_MANAGER,
+    PERMISSIONS.USER_READ,
+    PERMISSIONS.USER_UPDATE_ROLE,
+  ],
+  [ROLES.ADMIN]: [PERMISSIONS.CAFE_READ, PERMISSIONS.CAFE_UPDATE],
+  [ROLES.USER]: [PERMISSIONS.CAFE_READ],
+};
