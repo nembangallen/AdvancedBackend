@@ -32,4 +32,7 @@ app.get("/me", requireAuth, (req: any, res) => {
   res.json({ user: req.user });
 });
 
+app.get("/health", (req: any, res) => {
+  res.status(200).json({ status: "ok" });
+});
 app.use(errorHandler);
